@@ -1,0 +1,105 @@
+func contarPalavras(texto string) map[string]int {
+    palavras := strings.Fields(texto)
+    contador := make(map[string]int)
+    
+    for _, palavra := range palavras {
+        contador[palavra]++
+    }
+    
+    return contador
+}
+
+
+2-
+func combinarMapas(mapa1, mapa2 map[string]int) map[string]int {
+    resultado := make(map[string]int)
+    
+    for chave, valor := range mapa1 {
+        resultado[chave] = valor
+    }
+    
+    for chave, valor := range mapa2 {
+        resultado[chave] = valor
+    }
+    
+    return resultado
+}
+3-
+
+func somaValores(mapa map[string]int) int {
+    soma := 0
+    
+    for _, valor := range mapa {
+        soma += valor
+    }
+    
+    return soma
+}
+
+4-
+
+func agruparAnagramas(palavras []string) map[string][]string {
+    anagramas := make(map[string][]string)
+    
+    for _, palavra := range palavras {
+        letras := strings.Split(palavra, "")
+        sort.Strings(letras)
+        chave := strings.Join(letras, "")
+        anagramas[chave] = append(anagramas[chave], palavra)
+    }
+    
+    return anagramas
+}
+5-func frequenciaCaracteres(texto string) map[rune]int {
+    frequencia := make(map[rune]int)
+    
+    for _, char := range texto {
+        frequencia[char]++
+    }
+    
+    return frequencia
+}
+6-func somaContagens(mapas []map[string]int) map[string]int {
+    soma := make(map[string]int)
+    
+    for _, mapa := range mapas {
+        for palavra, quantidade := range mapa {
+            soma[palavra] += quantidade
+        }
+    }
+    
+    return soma
+}
+7-func contagemLetrasPorPalavra(frase string) map[string]map[rune]int {
+    palavras := strings.Fields(frase)
+    contagem := make(map[string]map[rune]int)
+    
+    for _, palavra := range palavras {
+        contagem[palavra] = frequenciaCaracteres(palavra)
+    }
+    
+    return contagem
+}
+8-func calcularDespesasCompartilhadas(gastos map[string]float64) map[string]float64 {
+    totalGasto := 0.0
+    
+    for _, valor := range gastos {
+        totalGasto += valor
+    }
+    
+    media := totalGasto / float64(len(gastos))
+    
+    resultados := make(map[string]float64)
+    
+    for nome, valor := range gastos {
+        resultados[nome] = valor - media
+    }
+    
+    return resultados
+}
+
+
+
+
+
+
